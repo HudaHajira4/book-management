@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-
-
+import Header from "./Header";
+import NavBar from "./Navbar";
 function Main() {
 
     const [data, setData] = useState({
@@ -16,15 +16,20 @@ function Main() {
 
     console.log(data);
     return (
-        <div className="main">
-            <div>
-                <h2>{data.title} - <span className="author">{data.author} </span></h2>
-                <h4>Publisher - <span className="publisher">{data.publisher} </span></h4>
-                <img src={data.coverImageUrl} alt={data.title} height={"250px"}></img>
-                <p style={{ textAlign: "justify" }}>{data.synopsis}</p>
-
+        <>
+            <Header />
+            <div className="main">
+                <div style={{ overflow: "auto" }}>
+                    <div>
+                        <h2>{data.title} - <span className="author">{data.author} </span></h2>
+                        <h4>Publisher - <span className="publisher">{data.publisher} </span></h4>
+                        <img src={data.coverImageUrl} alt={data.title} height={"250px"}></img>
+                        <p style={{ textAlign: "justify" }}>{data.synopsis}</p>
+                    </div>
+                </div>
             </div>
-        </div>
+            <NavBar />
+        </>
     )
 }
 

@@ -2,7 +2,7 @@ function Header() {
     return (
         <>
             <div style={{
-                backgroundColor: "#e5e5e5",
+                backgroundColor: "lightgreen",
                 padding: "15px", textAlign: "center"
             }}>
                 <h1>Project React</h1>

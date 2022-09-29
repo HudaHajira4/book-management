@@ -12,7 +12,7 @@ import Users from "../../controllers/user/index.js";
 //IMport Validations
 
 import { userRegisterValidatorRules, errorMiddleware, userLoginValidatorRules ,  addbookvalidations } from "../../middleware/validation/index.js";
-
+import book from "../../model/book/index.js";
 const router = express.Router();
 
 
@@ -58,19 +58,43 @@ router.post("/register", userRegisterValidatorRules(),userLoginValidatorRules(),
 router.post("/book",addbookvalidations(),errorMiddleware, async(req,res)=>{
 try {
 
-    let book=new book(req.body);
+    let book =new book(req.body);
     await book.save();
     res.status(200).json({success: "Book succesfully added"});
     
 } catch (error) {
     console.error(error);
-    res.status(500).json({ "error": "Internal Server Error" })
+    res.status(500).json({ "error": "post book Server Error" })
 }
 })
 
+// .................................
+
+    
+//     let Book_data={
+//         title,
+//         Author,
+//         coverImagrUrl,
+//         PageCount,
+//         publisher,
+//         synopsis
+//     }
+//     console.log(Book_data)
+//     const user = new book(Book_data);
+//     // console.log(userFound.BOOKS=[Book_data])
+//     //  userFound.push(Book_data);
+//         await user.save();
+//         res.status(200).json({ success: "Book was Added" })
+//     } catch (error) {
+//         console.log(error);
+//         res.status(500).json({ error: "Internal Server Error" })
+//     }
+// })
+// ............................................
+
 router.get("/book", async(req,res)=>{
     try {
-        let book=await book.findOne({});
+        let book=await book.find({});
         res.status(200).json({success: "Book found"});
         
     } catch (error) {

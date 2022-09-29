@@ -1,15 +1,26 @@
 import './App.css';
-import Header from './components/Header';
-import Navbar from './components/Navbar';
-import Main from './components/Main';
+
+
+import {
+  Routes,
+  Route,
+} from "react-router-dom";
+
+import Main from './components/Main.js';
+import Register from './components/Register.js';
+import Login from './components/Login.js';
+
 function App() {
   return (
     <>
-      <Header />
-      <div style={{ overflow: "auto" }}>
-        <Main />
-        <Navbar />
-      </div>
+
+      <Routes>
+
+        <Route path="/" element={<Main />} />
+        <Route path="/Register" element={<Register />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+
+      </Routes>
     </>
   );
 }
