@@ -1,4 +1,5 @@
-import { body, validationResult } from 'express-validator'
+import { body, validationResult } from 'express-validator';
+
 function userRegisterValidatorRules() {
     return [
         body("firstname", "First Name is Required").notEmpty().isLength({ min: 2 }),

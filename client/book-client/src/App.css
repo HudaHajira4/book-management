@@ -32,102 +32,45 @@
   text-align: center;
 }
 
-a {
-  text-decoration: none;
-}
-
-@media only screen and (max-width: 620px) {
-
-  /* For mobile phones: */
-  .menu,
-  .main,
-  .right {
-      width: 100%;
-  }
-}
-*{
-  box-sizing: border-box;
-}
-.menu {
-  float: left;
-  width: 20%;
-  text-align: center;
-}
-.menu a {
-  background-color: #A10000;
-  padding: 15px;
-  margin-top: 7px;
-  display: block;
-  width: 100%;
-  color: rgba(0, 0, 0, 0.699);
-}
-.main {
-  float: left;
-  width: 80%;
-  padding: 0 20px;
-}
-.right {
-  background-color: #E5E5E5;
-  float: left;
-  width: 20%;
-  padding: 15px;
-  margin-top: 7px;
-  text-align: center;
-}
-a {
-  text-decoration: none;
-}
-@media only screen and (max-width: 620px) {
-  /* For mobile phones: */
-  .menu,
-  .main,
-  .right {
-      width: 100%;
-  }
-}
-
-body {font-family: Arial, Helvetica, sans-serif;}
-* {box-sizing: border-box;}
-input[type=text],input[type=email],input[type=password], select, textarea {
-  width: 50%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-}
-label{
-  margin-top: 50px;
-}
-input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-input[type=submit]:hover {
-  background-color: #45A049;
-}
 .container {
-  border-radius: 5px;
-  background-color: green;
-  padding: 20px;
+  width: 40%;
+  margin: auto;
 }
 
-input[type=button], input[type=submit], input[type=reset] {
-  background-color: #04AA6D;
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
   border: none;
-  color: white;
-  padding: 16px 32px;
-  text-decoration: none;
-  margin: 4px 2px;
+  background-color: #f1f1f1;
+}
+
+input[type="submit"] {
+  width: 30%;
+  padding: 15px;
+  font-weight: bolder;
+  border: none;
   cursor: pointer;
 }
 
+a {
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 620px) {
+  /* For mobile phones: */
+  .menu,
+  .main,
+  .right {
+    width: 100%;
+  }
+}
   .form {
     text-align: center;
     /* border: 3px solid green; */
@@ -140,3 +83,9 @@ input[type=button], input[type=submit], input[type=reset] {
   }
 
 
+.alert-success{
+  color: green;
+}
+.alert-error{
+  color: red;
+}
