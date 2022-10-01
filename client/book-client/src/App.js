@@ -13,14 +13,8 @@ import Login from './components/Login';
 function App() {
 
   const [alert, setAlert] = useState(null);
-  const showAlert = (data) => {
-    setAlert({
-      type: data.type,
-      msg: data.msg
-    })
-    setTimeout(() => {
-      setAlert(null);
-    }, 5000)
+  const showAlert = (data) => {setAlert({ type: data.type,msg: data.msg })
+    setTimeout(() => {setAlert(null);}, 5000)
   }
 
 
@@ -35,7 +29,8 @@ function App() {
           alert={alert}
           showAlert={showAlert}
         />}></Route>
-        <Route path='/login' element={<Login />} />
+        <Route path='/login' element={<Login alert={alert}
+          showAlert={showAlert} />} />
       </Routes>
     </>
   );

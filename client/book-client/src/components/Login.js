@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
-function Login({alert, showAlert }) {
+function Login({ alert, showAlert }) {
   const [userData, setUserData] = useState({
     email: "",
     password: "",
@@ -23,7 +23,7 @@ function Login({alert, showAlert }) {
       e.preventDefault();
       console.log(userData);
       let res = await axios.post("/api/user/login", userData);
-      console.log(res.data);
+      // console.log(res.data);/
       showAlert({
         type: "success",
         msg: res.data.success,
