@@ -9,28 +9,38 @@ import {
 import Main from './components/Main';
 import Register from './components/Register';
 import Login from './components/Login';
+import AdminDashboard from './components/AdminDashboard';
+import UserDashboard from './components/UserDashboard';
+import PrivateRoutes from './components/PrivateRoutes';
 
 function App() {
 
   const [alert, setAlert] = useState(null);
-  const showAlert = (data) => {setAlert({ type: data.type,msg: data.msg })
-    setTimeout(() => {setAlert(null);}, 5000)
+  const showAlert = (data) => {
+    setAlert({
+      type: data.type,
+      msg: data.msg
+    })
+    setTimeout(() => {
+      setAlert(null);
+    }, 5000)
   }
-
-
-
   return (
     <>
-
       <Routes>
-
         <Route path="/" element={<Main />} />
         <Route path="/register" element={<Register
           alert={alert}
           showAlert={showAlert}
         />}></Route>
-        <Route path='/login' element={<Login alert={alert}
-          showAlert={showAlert} />} />
+        <Route path='/login' element={<Login
+          alert={alert}
+          showAlert={showAlert}
+        />} />
+        <Route element={<PrivateRoutes />}>
+          <Route path="/user" element={<UserDashboard />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+        </Route>
       </Routes>
     </>
   );
