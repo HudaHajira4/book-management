@@ -7,11 +7,11 @@ import randomString from "../../utils/randomString.js";
 //IMPORT Models
 
 import Users from "../../models/Users/index.js";
-
+import Admin from "../../models/Admin/index.js";
 
 //IMport Validations
 
-import { userRegisterValidatorRules, errorMiddleware } from "../../middlewares/validation/index.js";
+import { userRegisterValidatorRules, userLoginValidatorRules, errorMiddleware } from "../../middlewares/validation/index.js";
 
 const router = express.Router();
 
@@ -38,16 +38,20 @@ router.post("/register", userRegisterValidatorRules(), errorMiddleware, async (r
         //Avoid Double Registration
         let userData = await Users.findOne({ email });
         if (userData) {
-            res.status(409).json({ "error": "Email Already Registered" })
+            return res.status(409).json({ "error": "Email Already Registered" })
+        }
+        userData = await Admin.findOne({ email });
+        if (userData) {
+            return res.status(409).json({ "error": "Email Already Registered" })
         }
 
-        password = await bcrypt.hash(password, 12);
+        req.body.password = await bcrypt.hash(password, 12);
         const user = new Users(req.body);
 
         user.userverifytoken = randomString(15);
         await user.save();
 
-        res.status(200).json({ "success": "Register is UP" })
+        res.status(200).json({ "success": "User Registered Successfully" })
 
     } catch (error) {
         console.error(error);
@@ -55,4 +59,10 @@ router.post("/register", userRegisterValidatorRules(), errorMiddleware, async (r
     }
 })
 
+
 export default router;
+
+
+
+
+
